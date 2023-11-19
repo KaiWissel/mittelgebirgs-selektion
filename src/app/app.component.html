@@ -20,12 +20,19 @@
 <table>
   <thead>
     <tr>
+      <th colspan="6"></th>
+      <th colspan="2">Registriert</th>
+      <th colspan="2">Selektiert</th>
+    </tr>
+    <tr>
       <th></th>
       <th>WPRS</th>
       <th>Name</th>
       <th>Civl</th>
       <th>Herkunft</th>
       <th>M/W</th>
+      <th>Mosel</th>
+      <th>Sauerland</th>
       <th>Mosel</th>
       <th>Sauerland</th>
     </tr>
@@ -38,9 +45,17 @@
     <td>{{ row.state }}</td>
     <td>{{ row.gender }}</td>
     <td>
+      <input type="checkbox" [checked]="row.mosel" [disabled]="true" />
+    </td>
+    <td>
+      <input type="checkbox" [checked]="row.sauerland" [disabled]="true" />
+    </td>
+    <td>
       <input type="checkbox" [checked]="row.mosel" />
     </td>
-    <td><input type="checkbox" [checked]="row.sauerland" /></td>
+    <td>
+      <input type="checkbox" [checked]="row.sauerland" />
+    </td>
   </tr>
 </table>
 
