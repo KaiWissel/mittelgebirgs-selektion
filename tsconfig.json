@@ -11,6 +11,7 @@
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
     "sourceMap": true,
+    "strictPropertyInitialization": false,
     "declaration": false,
     "experimentalDecorators": true,
     "moduleResolution": "node",
@@ -18,10 +19,7 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "lib": ["ES2022", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

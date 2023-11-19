@@ -1,0 +1,10 @@
+<article>
+  <label for="{{ key }}-label">{{ buttonTitle }}</label>
+  <input
+    id="{{ key }}-label"
+    type="file"
+    class="file-upload"
+    accept=".xlsx"
+    (change)="onFileSelected($event)"
+  />
+</article>
