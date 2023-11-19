@@ -69,6 +69,7 @@ function createEntry(p: any, key: string): Pilot {
     startNumber: +p['Participant number'],
     civlId: +p['Civl id'],
     latestRanking: retrieveRanking(p),
+    gender: p.Gender,
   };
 
   // @ts-ignore

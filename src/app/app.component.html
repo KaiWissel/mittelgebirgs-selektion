@@ -25,6 +25,7 @@
       <th>Name</th>
       <th>Civl</th>
       <th>Herkunft</th>
+      <th>M/W</th>
       <th>Mosel</th>
       <th>Sauerland</th>
     </tr>
@@ -35,6 +36,7 @@
     <td>{{ row.firstName }} {{ row.lastName }}</td>
     <td>{{ row.civlId }}</td>
     <td>{{ row.state }}</td>
+    <td>{{ row.gender }}</td>
     <td>
       <input type="checkbox" [checked]="row.mosel" />
     </td>

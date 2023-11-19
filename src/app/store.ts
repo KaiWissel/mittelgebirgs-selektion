@@ -5,6 +5,7 @@ export type Pilot = {
   startNumber: number;
   civlId: number;
   latestRanking: any;
+  gender: string;
   mosel?: boolean;
   sauerland?: boolean;
 };
