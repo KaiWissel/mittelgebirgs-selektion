@@ -1,0 +1,52 @@
+<table>
+  <thead>
+    <tr>
+      <th colspan="6"></th>
+      <th colspan="2">Registriert</th>
+      <th colspan="2">Selektiert</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>WPRS</th>
+      <th>Name</th>
+      <th>Civl</th>
+      <th>Herkunft</th>
+      <th>M/W</th>
+      <th>RLP</th>
+      <th>NRW</th>
+      <th>RLP</th>
+      <th>NRW</th>
+    </tr>
+  </thead>
+  <tr
+    *ngFor="let pilot of data; index as i"
+    [ngClass]="{ payAttention: pilot.attention }"
+  >
+    <td>{{ i + 1 }}</td>
+    <td>{{ pilot.latestRanking }}</td>
+    <td>{{ pilot.firstName }} {{ pilot.lastName }}</td>
+    <td>{{ pilot.civlId }}</td>
+    <td>{{ pilot.state }}</td>
+    <td>{{ pilot.gender }}</td>
+    <td>
+      <input type="checkbox" [checked]="pilot.mosel" [disabled]="true" />
+    </td>
+    <td>
+      <input type="checkbox" [checked]="pilot.sauerland" [disabled]="true" />
+    </td>
+    <td>
+      <input
+        type="checkbox"
+        [checked]="pilot.moselSelected"
+        (change)="updateSelected($event, 'moselSelected', pilot)"
+      />
+    </td>
+    <td>
+      <input
+        type="checkbox"
+        [checked]="pilot.sauerlandSelected"
+        (change)="updateSelected($event, 'sauerlandSelected', pilot)"
+      />
+    </td>
+  </tr>
+</table>

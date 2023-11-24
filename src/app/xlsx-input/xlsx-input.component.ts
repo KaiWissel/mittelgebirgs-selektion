@@ -1,7 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { read, utils } from 'xlsx';
-import { Pilot, pilots } from '../store';
+import {
+  Pilot,
+  pilots,
+  setAttentionMarker,
+  setPreSelection,
+  sortPilots,
+} from '../store';
 
 @Component({
   selector: 'app-xlsx-input',
@@ -42,23 +48,9 @@ function parseXlsx(text: any, key: string) {
     pilots.push(createEntry(p, key));
   });
 
-  pilots.sort((a, b) => {
-    const aR = a.latestRanking;
-    const bR = b.latestRanking;
-    if (isNaN(aR) && isNaN(bR)) return 0;
-    if (isNaN(aR)) return 1;
-    if (isNaN(bR)) return -1;
-
-    return aR - bR;
-  });
-
-  if (pilots.length) {
-    console.log('Pilots is', pilots.length);
-  } else {
-    console.log('Pilots is empty');
-  }
-
-  console.log(pilots);
+  sortPilots();
+  setPreSelection();
+  setAttentionMarker();
 }
 
 function createEntry(p: any, key: string): Pilot {

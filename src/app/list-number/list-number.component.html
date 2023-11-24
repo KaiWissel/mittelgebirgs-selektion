@@ -1,4 +1,15 @@
 <article>
   <header>{{ title }}</header>
-  <h1>{{ number }}</h1>
+  <div class="grid">
+    <p>Registriert</p>
+    <p>{{ numberRegisteredPilots }}</p>
+  </div>
+  <div class="grid">
+    <p>Selektiert</p>
+    <p>{{ numberSelectedPilots }}</p>
+  </div>
+  <div class="grid" *ngIf="numberWarningPilots">
+    <p>Warnungen</p>
+    <p>{{ numberWarningPilots }}</p>
+  </div>
 </article>

@@ -1,0 +1,8 @@
+article {
+  margin-top: auto;
+}
+
+article > header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
