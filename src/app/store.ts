@@ -53,6 +53,8 @@ export function setAttentionMarker() {
       !(pilot.sauerlandSelected && pilot.moselSelected)
     ) {
       pilot.attention = true;
+    } else {
+      pilot.attention = false;
     }
   });
 }
