@@ -38,7 +38,7 @@
       <input
         type="checkbox"
         [checked]="pilot.moselSelected"
-        [disabled]="!pilot.moselSelected"
+        [disabled]="!pilot.mosel"
         (change)="updateSelected($event, 'moselSelected', pilot)"
       />
     </td>
@@ -46,7 +46,7 @@
       <input
         type="checkbox"
         [checked]="pilot.sauerlandSelected"
-        [disabled]="!pilot.sauerlandSelected"
+        [disabled]="!pilot.sauerland"
         (change)="updateSelected($event, 'sauerlandSelected', pilot)"
       />
     </td>
