@@ -1,3 +1,6 @@
+import { stringify } from 'csv-stringify/browser/esm';
+import { parse } from 'csv-parse/browser/esm';
+
 export type Pilot = {
   firstName: any;
   lastName: any;
@@ -71,4 +74,54 @@ function sortByWprsRanking(a: Pilot, b: Pilot) {
   if (isNaN(bR)) return -1;
 
   return aR - bR;
+}
+
+export function startExport() {
+  stringify(pilots, { header: true }, (err, data) => {
+    if (err) {
+      console.log(err);
+    }
+
+    // Erzeuge einen Blob aus dem Text
+    const blob = new Blob([data], { type: 'text/plain' });
+    const date = new Intl.DateTimeFormat('de-DE', {
+      dateStyle: 'short',
+      timeStyle: 'short',
+    })
+      .format(new Date())
+      .replace(', ', '_')
+      .replace(':', '')
+      .replace('.', '');
+
+    // Erzeuge einen Download-Link
+    const downloadLink = document.createElement('a');
+    downloadLink.href = window.URL.createObjectURL(blob);
+    downloadLink.download = date + '_mittelgebirgs-selection.csv';
+
+    // Füge den Link zum Dokument hinzu, aber halte ihn unsichtbar
+    downloadLink.style.display = 'none';
+    document.body.appendChild(downloadLink);
+
+    // Klicke auf den Link, um den Download auszulösen
+    downloadLink.click();
+  });
+}
+
+export function startImport(content: string) {
+  parse(
+    content,
+    {
+      columns: true,
+    },
+    (err, data) => {
+      if (err) {
+        console.info(err);
+      }
+
+      pilots.splice(0, pilots.length);
+      pilots.push(...data);
+
+      console.log(data);
+    }
+  );
 }

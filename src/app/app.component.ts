@@ -4,6 +4,8 @@ import { RouterOutlet } from '@angular/router';
 import { XlsxInputComponent } from './xlsx-input/xlsx-input.component';
 import { ListNumberComponent } from './list-number/list-number.component';
 import { MainTableComponent } from './main-table/main-table.component';
+import { ExportCsvComponent } from './export-csv/export-csv.component';
+import { ImportCsvComponent } from './import-csv/import-csv.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +16,8 @@ import { MainTableComponent } from './main-table/main-table.component';
     XlsxInputComponent,
     ListNumberComponent,
     MainTableComponent,
+    ExportCsvComponent,
+    ImportCsvComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

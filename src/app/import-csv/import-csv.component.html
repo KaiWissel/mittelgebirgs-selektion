@@ -1,0 +1,11 @@
+<button class="secondary" id="importCsvButton" (click)="importCsv()">
+  Import CSV
+</button>
+<input
+  id="importCsvInput"
+  type="file"
+  class="file-upload"
+  style="display: none"
+  accept=".csv"
+  (change)="onFileSelected($event)"
+/>
